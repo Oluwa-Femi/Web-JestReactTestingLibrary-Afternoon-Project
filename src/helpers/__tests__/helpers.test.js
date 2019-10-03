@@ -28,6 +28,16 @@ describe('sum', () => {
 
 describe('multiply', () => {
   // write tests! <================================================
+  it("throws if fed something which is not a number", () => {
+    expect(() => helpers.multiply("1", "2")).toThrow();
+  });
+
+  it("multiplies positive number correctly", () => {
+    expect(helpers.multiply(4, 5)).toBe(20);
+  });
+  it('multiplies negative number correctly', () => {
+    expect(helpers.multiply(-4, -5)).toBe(20);
+  });
 });
 
 describe('personMaker', () => {
