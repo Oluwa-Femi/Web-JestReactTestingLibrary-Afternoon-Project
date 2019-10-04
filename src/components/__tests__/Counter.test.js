@@ -71,13 +71,43 @@ describe("Counter component", () => {
 
   it("prevents the count from going under a lower limit", () => {
     // implement
+    const decButton = tools.queryByTestId("decButton");
+
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+
+    expect(tools.queryByText(/-5/)).toBeInTheDocument();
   });
 
   it("shows a warning once we hit the upper limit of the counter", () => {
     // implement
+    const incButton = tools.queryByTestId("incButton");
+
+    rtl.fireEvent.click(incButton);
+    rtl.fireEvent.click(incButton);
+    rtl.fireEvent.click(incButton);
+    rtl.fireEvent.click(incButton);
+    rtl.fireEvent.click(incButton);
+    rtl.fireEvent.click(incButton);
+
+    expect(tools.queryByText(/That's as high/)).toBeInTheDocument();
   });
 
   it("shows a warning once we hit the lower limit of the counter", () => {
     // implement
+    const decButton = tools.queryByTestId("decButton");
+
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+    rtl.fireEvent.click(decButton);
+
+    expect(tools.queryByText(/That's as low/)).toBeInTheDocument();
   });
 });
